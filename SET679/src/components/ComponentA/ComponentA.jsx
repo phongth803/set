@@ -2,7 +2,7 @@ import React, { createContext } from "react";
 import ComponetB from "../ComponetB/ComponetB";
 import { useState } from "react";
 
-// export const handle = createContext();
+export const handle = createContext();
 
 function ComponentA() {
   const [counter, setCounter] = useState(0);
@@ -14,13 +14,13 @@ function ComponentA() {
       <div className="number">
         <h1>{counter}</h1>
       </div>
-      {/* <handle.Provider value={handleClick}>
+      <handle.Provider value={handleClick}>
         <ComponetB />
-      </handle.Provider> */}
-      <ComponetB handleClick={handleClick} />
+      </handle.Provider>
       <button className="button" onClick={handleClick()}>
         Click A
       </button>
+      {/* <ComponetB handleClick={handleClick} /> */}
     </>
   );
 }

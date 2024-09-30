@@ -1,10 +1,9 @@
 import React, { useContext } from "react";
 import { handle } from "../ComponentA/ComponentA";
 
-function ComponetB(props) {
-  const { handleClick } = props;
-  // const theme = useContext(handle);
-  // const handleClick = theme;
+function ComponetB() {
+  // const { handleClick } = props;
+  const handleClick = useContext(handle);
   return (
     <div className="counter__B">
       <button className="button" onClick={handleClick()}>
