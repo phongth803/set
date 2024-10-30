@@ -1,4 +1,4 @@
-import React, { createContext } from "react";
+import React, { createContext, useCallback } from "react";
 import ComponetB from "../ComponetB/ComponetB";
 import { useState } from "react";
 
@@ -6,9 +6,9 @@ export const handle = createContext();
 
 function ComponentA() {
   const [counter, setCounter] = useState(0);
-  const handleClick = () => () => {
+  const handleClick = useCallback(() => () => {
     setCounter((prev) => prev + 1);
-  };
+  });
   return (
     <>
       <div className="number">
