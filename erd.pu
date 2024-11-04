@@ -1,0 +1,56 @@
+@startuml
+
+entity "User" {
+    +Id : string
+    --
+    +username : string
+    +email : string
+    +password : string
+}
+
+entity "Project" {
+    +Id : string
+    --
+    +projectName : string
+    --
+    +createdAt : datetime
+    +updatedAt : datetime
+}
+
+entity "UserProjectRole" {
+    +Id : string
+    --
+    +userId : string
+    +projectId : string
+    --
+    +isAdmin : boolean
+    --
+    +createdAt : datetime
+    +updatedAt : datetime
+    +createdBy : string
+    +updatedBy : string
+}
+
+entity "Todo" {
+    +Id : string
+    --
+    +projectId : string
+    +parentTodoId : string
+    --
+    +name : string
+    +isChecked : boolean
+    --
+    +createdAt : datetime
+    +updatedAt : datetime
+    +createdBy : string
+    +updatedBy : string
+}
+
+User ||--o{ UserProjectRole : "Assigned Roles"
+Project ||--o{ UserProjectRole : "Project Roles"
+Project ||--o{ Todo : "Contains"
+User ||--o{ Todo : "Assigned Tasks"
+User ||--o{ Project : "createdBy, updatedBy"
+Todo ||--o{ Todo : "parentTodoId"
+
+@enduml
